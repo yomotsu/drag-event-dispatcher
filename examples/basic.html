@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>=^.^=</title>
+<style>
+.dragTarget {
+	color: #fff;
+	width: 100px;
+	height: 100px;
+	background: #60f;
+}
+</style>
+</head>
+<body>
+<div class="info">
+	<p><a href="https://github.com/yomotsu/drag-event-dispatcher">GitHub repo</a></p>
+</div>
+
+<div class="dragTarget">drag me</div>
+
+<script src="../dist/drag-event-dispatcher.js"></script>
+<script>
+let x = 0;
+let y = 0;
+const $el = document.querySelector( '.dragTarget' )
+const dragEventDispatcher = new DragEventDispatcher( $el );
+console.log(dragEventDispatcher);
+
+dragEventDispatcher.addEventListener( 'dragstart', ( event ) => {
+
+	console.log( event );
+
+} );
+dragEventDispatcher.addEventListener( 'dragmove', ( event ) => {
+
+	console.log( event );
+
+	x += event.deltaX;
+	y += event.deltaY;
+	$el.style.transform = `translate( ${ x }px, ${ y }px )`;
+
+} );
+
+dragEventDispatcher.addEventListener( 'dragend', ( event ) => {
+
+	console.log( event );
+
+} );
+</script>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+{
+  "name": "drag-event-dispatcher",
+  "version": "0.0.1",
+  "author": "Yomotsu",
+  "license": "MIT",
+  "main": "dist/drag-event-dispatcher.js",
+  "jsnext:main": "dist/drag-event-dispatcher.module.js",
+  "module": "dist/drag-event-dispatcher.module.js",
+  "types": "dist/index.d.ts",
+  "repository": "yomotsu/drag-event-dispatcher",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^3.5.0",
+    "@typescript-eslint/parser": "^3.5.0",
+    "downlevel-dts": "^0.5.0",
+    "eslint": "^7.3.1",
+    "eslint-config-mdcs": "^5.0.0",
+    "rollup": "^2.18.1",
+    "rollup-plugin-typescript2": "^0.27.1",
+    "terser": "^4.8.0",
+    "typescript": "^3.9.5"
+  },
+  "scripts": {
+    "dev": "rollup --config --watch",
+    "build": "rollup --config && terser dist/drag-event-dispatcher.js -o dist/drag-event-dispatcher.min.js --comments '/^!/' && downlevel-dts . .",
+    "lint": "eslint src --ext ts"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "ie >= 11"
+  ],
+  "eslintConfig": {
+    "root": true,
+    "parser": "@typescript-eslint/parser",
+    "extends": "mdcs",
+    "plugins": [
+      "@typescript-eslint"
+    ],
+    "rules": {
+      "no-unused-vars": 0,
+      "@typescript-eslint/no-unused-vars": 1,
+      "indent": 0,
+      "@typescript-eslint/indent": [
+        "error",
+        "tab",
+        {
+          "SwitchCase": 1,
+          "flatTernaryExpressions": true
+        }
+      ],
+      "no-multi-spaces": [
+        0
+      ],
+      "key-spacing": [
+        0
+      ]
+    }
+  },
+  "eslintIgnore": [
+    "/dist/",
+    "/node_modules/"
+  ],
+  "typesVersions": {
+    "<=3.4.0-0": {
+      "*": [
+        "./"
+      ]
+    }
+  },
+  "keywords": [
+    "drag",
+    "event"
+  ]
+}
