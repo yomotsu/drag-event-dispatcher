@@ -16,7 +16,7 @@
     "eslint-config-mdcs": "^5.0.0",
     "rollup": "^2.18.1",
     "rollup-plugin-typescript2": "^0.27.1",
-    "terser": "^4.8.0",
+    "terser": "^4.8.1",
     "typescript": "^3.9.5"
   },
   "scripts": {
